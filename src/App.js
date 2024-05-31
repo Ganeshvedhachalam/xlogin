@@ -22,9 +22,10 @@ function App() {
      const Validusername="user"
      const Validpassword="password"
       if(input.Username===Validusername && input.Password===Validpassword){
-        alert("Welcome, user!")
+        alert("Welcome, user")
       }else{
         alert("Invalid username or password")
+      
       }
     
     
@@ -43,7 +44,7 @@ function App() {
        </label>
           <br></br>
           <label>Password
-            <input  name="Password"   value={input.Password} onChange={handlechange} 
+            <input  name="Password"  type='password' value={input.Password} onChange={handlechange} 
            placeholder='password' required />
            </label>
           <br></br>
