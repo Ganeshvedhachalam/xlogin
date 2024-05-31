@@ -19,34 +19,35 @@ function App() {
    }
   const handlesubmit=(e)=>{
      e.preventDefault()
-      // setInput({names:e.,
-      //   pass:e.target.name
-      // })
+     const Validusername="user"
+     const Validpassword="password"
       if(input.Username===Validusername && input.Password===Validpassword){
         alert("Welcome, user!")
       }else{
         alert("Invalid username or password")
       }
-      alert(input)
+    
     
 
   }
-  console.log(input)
-  const Validusername="User"
-  const Validpassword="Password"
+
 
   return (
     <div className="App">
       <header className="App-header">
         <h1>Login Page</h1>
         <form onSubmit={handlesubmit}>
-          <label>Username:<input  name="Username"  onChange={handlechange} 
-       placeholder='enter your username' required/></label>
+          <label>Username:
+            <input  name="Username"  onChange={handlechange} 
+       placeholder='enter your username' required />
+       </label>
           <br></br>
-          <label>Password:<input  name="Password" onChange={handlechange} 
-           placeholder='enter your password' required/></label>
+          <label>Password:
+            <input  name="Password" onChange={handlechange} 
+           placeholder='enter your password' required />
+           </label>
           <br></br>
-          <button onClick={handlesubmit}> Submit</button>
+          <button type='submit'> Submit</button>
         </form>
         
       </header>
