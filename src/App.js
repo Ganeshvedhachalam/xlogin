@@ -8,7 +8,7 @@ function App() {
     Username: "",
     Password: "",
   });
-  console.log(<h1>initial{input}</h1>)
+  console.log({input})
   const [error, setError] = useState("");
   const [welcome, setWelcome] = useState("");
 
@@ -29,14 +29,13 @@ function App() {
 
     if (input.Username === Validusername && input.Password === Validpassword) {
       setError("");
-      alert("Welcome, user");
       console.log("Welcome, user")
       setWelcome("Welcome, user")
     } else {
       setError("Invalid username or password");
       console.error("Invalid username or password")
     }
-    console.log(<h1>after submit{input}</h1>)
+    console.log({input})
   };
 
   return (
@@ -46,18 +45,19 @@ function App() {
         <form onSubmit={handleSubmit}>
           <label>
             Username
-            <input
+           
+          </label> <input
               name="Username"
               value={input.Username}
               onChange={handleChange}
               placeholder="username"
               required
             />
-          </label>
           <br />
           <label>
             Password
-            <input
+          </label>  
+          <input
               name="Password"
               type="password"
               value={input.Password}
@@ -65,12 +65,11 @@ function App() {
               placeholder="password"
               required
             />
-          </label>
           <br />
           <button type="submit">Submit</button>
         </form>
         {error && <div style={{ color: 'red' }}>{error}</div>}
-        {welcome && <div style={{ color: 'red' }}>{welcome}</div>}
+        {welcome && <div style={{ color: 'green' }}>{welcome}</div>}
       </header>
     </div>
   );
