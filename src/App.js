@@ -3,54 +3,65 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
+  const [input, setInput] = useState({
+    Username: '',
+    Password: '',
+  });
 
-  // const[username ,setUsername]=useState("")
-  // const[password ,setpassword]=useState("")
-  const[input ,setInput]=useState({})
-  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setInput((prev) => ({ ...prev, [name]: value }));
+  };
 
-   const handlechange=(e)=>{
-    // const name=e.target.name
-    // const value=e.target.value
-    setInput( (prev)=> { return {...prev, [e.target.name]:e.target.value} }
-    
-    )
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const Validusername = "user";
+    const Validpassword = "password";
 
-   }
-  const handlesubmit=(e)=>{
-     e.preventDefault()
-     const Validusername="user"
-     const Validpassword="password"
-      if(input.Username===Validusername && input.Password===Validpassword){
-        alert("Welcome, user")
-      }else{
-        alert("Invalid username or password")
-      
-      }
-    
-    
+    if (!input.Username || !input.Password) {
+      alert("Username and Password are required");
+      return;
+    }
 
-  }
-
+    if (input.Username === Validusername && input.Password === Validpassword) {
+      alert("Welcome, user");
+      console.log("Welcome, user")
+    } else {
+      alert("Invalid username or password");
+      console.log("Invalid username or password")
+    }
+  };
 
   return (
     <div className="App">
       <header className="App-header">
         <h1>Login Page</h1>
-        <form onSubmit={handlesubmit}>
-          <label>Username
-            <input  name="Username" value={input.Username} onChange={handlechange} 
-       placeholder='username' required />
-       </label>
-          <br></br>
-          <label>Password
-            <input  name="Password"  type='password' value={input.Password} onChange={handlechange} 
-           placeholder='password' required />
-           </label>
-          <br></br>
-          <button type='submit'> Submit</button>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Username:
+            <input
+              name="Username"
+              value={input.Username}
+              onChange={handleChange}
+              placeholder="enter your username"
+              required
+            />
+          </label>
+          <br />
+          <label>
+            Password:
+            <input
+              name="Password"
+              type="password"
+              value={input.Password}
+              onChange={handleChange}
+              placeholder="enter your password"
+              required
+            />
+          </label>
+          <br />
+          <button type="submit">Submit</button>
         </form>
-        
       </header>
     </div>
   );
