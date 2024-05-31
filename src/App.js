@@ -37,14 +37,14 @@ function App() {
       <header className="App-header">
         <h1>Login Page</h1>
         <form onSubmit={handlesubmit}>
-          <label>Username:
-            <input  name="Username"  onChange={handlechange} 
-       placeholder='enter your username' required />
+          <label>Username
+            <input  name="Username" value={input.Username} onChange={handlechange} 
+       placeholder='username' required />
        </label>
           <br></br>
-          <label>Password:
-            <input  name="Password" onChange={handlechange} 
-           placeholder='enter your password' required />
+          <label>Password
+            <input  name="Password"   value={input.Password} onChange={handlechange} 
+           placeholder='password' required />
            </label>
           <br></br>
           <button type='submit'> Submit</button>
