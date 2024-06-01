@@ -34,10 +34,11 @@ function App() {
     } else {
       setError("Invalid username or password");
       console.error("Invalid username or password")
+      setWelcome("")
     }
     console.log({input})
   };
-
+    
   return (
     <div className="App">
       <header className="App-header">
